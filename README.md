@@ -1,76 +1,193 @@
-# 🚀 Hackathon Environment Setup
+# 🤖 DWY Tool Calling LLM Agent - Hackathon Setup
 
 **Live at: [organizedai.vip](https://organizedai.vip)**
 
-Automated environment setup for hackathon participants. One-click installation of:
+Automated environment setup for hackathon participants to get the complete **DWY (Done With You) Tool Calling LLM Agent** project up and running in minutes.
 
-- ✅ **Git** (version control)
-- ✅ **Python** + essential packages
-- ✅ **Node.js** (for web development)
+## 🎯 What Participants Get
+
+### **Complete AI Agent Development Environment**
+- ✅ **Git** (version control) with user configuration
+- ✅ **Node.js 18+** (required for the AI agent)
+- ✅ **Python** + essential packages for additional components
 - ✅ **Cursor IDE** (AI-powered code editor)
 - ✅ **GitHub CLI** (easy authentication)
-- ✅ **Starter project** with templates
+- ✅ **Complete DWY Tool Calling LLM Agent project** cloned and ready
 
-## 🎯 Quick Start
+### **DWY Tool Calling LLM Agent Features**
+- 🧠 **Knowledge Graph Memory System** (Neo4j + Penumbra.ai)
+- 🎥 **AI Video Generation** (Texel.ai integration)
+- 🎨 **Marketing AI Services** (Sindarin.tech Voice AI)
+- 🔗 **Tool Calling & MCP Protocol** (Toolhouse.ai)
+- 🏠 **Local AI Deployment** (Ollama + WebAI.com)
+- 📐 **Project Planning Systems** (DeepInvent.ai)
+
+## 🚀 Quick Start for Participants
 
 1. Visit **[organizedai.vip](https://organizedai.vip)**
 2. Click your operating system
 3. Download and run the setup script
-4. Start coding in 5 minutes!
+4. Choose your learning path:
+   - **Complete Beginner**: Start with `docs/beginner-setup-guide.md`
+   - **Some Experience**: Try `reference-implementation/complete-agent/`
+   - **Experienced Developer**: Jump into the `workshops/` directory
 
-## 📁 What's Included
+## 📁 What Gets Installed
 
-- `index.html` - Main setup website
-- `scripts/` - Platform-specific setup scripts
-  - `hackathon-setup-mac.sh` - macOS setup
-  - `hackathon-setup-windows.ps1` - Windows setup  
-  - `hackathon-setup-linux.sh` - Linux setup
+### **Project Structure** (Automatically Cloned)
+```
+~/dwy-hackathon-project/
+├── 📄 project_overview.md                    # Complete project vision
+├── 📁 workshops/                             # 6 progressive workshops
+│   ├── workshop1_project_planning_systems.md
+│   ├── workshop2_knowledge_graph_implementation.md
+│   ├── workshop3_marketing_ai_services.md
+│   ├── workshop4_ai_video_generation.md
+│   ├── workshop5_tool_calling_mcp_integration.md
+│   └── workshop6_local_ai_deployment.md
+├── 📁 reference-implementation/               # Working code examples
+│   ├── 📁 complete-agent/                   # ✨ Full integrated DWY agent
+│   │   ├── src/agent.js                     # Main orchestrator
+│   │   ├── package.json & .env              # Ready to run
+│   │   └── README.md                        # Implementation guide
+└── 📁 templates/                             # Standalone workshop starters
+    ├── 📁 workshop1-template/               # Project planning starter
+    └── 📁 project-starter/                  # Basic project template
+```
 
-## 🛠️ What Gets Installed
-
-### Core Development Tools
-- **Git** with user configuration
-- **Python 3** + pip with essential packages:
-  - requests, numpy, pandas
-  - openai, python-dotenv
-  - flask, fastapi
-- **Node.js** for web development
+### **Development Tools**
+- **Git** with global configuration (name, email, default branch)
+- **Node.js 18+** with npm for the AI agent dependencies
+- **Python 3** with pip for additional components
 - **Cursor IDE** with beginner-friendly settings
+- **GitHub CLI** for easy repository authentication
 
-### Project Setup
-- Creates `~/hackathon-project` folder
-- Initializes Git repository
-- Provides starter templates:
-  - `main.py` - Python starter
-  - `README.md` - Project documentation
-  - `requirements.txt` - Python dependencies
-  - `.env.example` - Environment variables template
+### **Ready-to-Run AI Agent**
+```bash
+cd reference-implementation/complete-agent
+npm install  # Already done by setup script
+npm start    # Launch the complete AI agent
+```
 
-## 🎤 For Presenters
+## 🎤 Perfect for Hackathon Presentations
 
-Perfect for hackathon kickoffs! During your presentation:
+During your speech, participants can:
 
 1. **"Everyone go to organizedai.vip"**
-2. **"Click your computer type"**
-3. **"Download and run the script"**
-4. Continue speaking while setups run (5-10 minutes)
-5. **"Now everyone has a working dev environment!"**
+2. **"Click your computer type and run the script"**
+3. Continue presenting while environments set up (5-10 minutes)
+4. **"Now everyone has a complete AI agent to work with!"**
 
-## 🆘 Troubleshooting
+### **What Happens During Setup:**
+- ⏱️ **0-2 minutes**: Download tools (Git, Node.js, Python, Cursor)
+- ⏱️ **2-5 minutes**: Clone complete DWY project repository
+- ⏱️ **5-8 minutes**: Install project dependencies (`npm install`)
+- ⏱️ **8-10 minutes**: Final configuration and project opening in Cursor
 
-- **Admin privileges needed?** Scripts detect this and provide alternatives
-- **Slow internet?** Scripts handle offline scenarios
-- **Corporate firewall?** Fallback to GitHub Codespaces
-- **Need help?** Each script provides clear error messages
+## 🎓 Multiple Learning Paths
 
-## 🔧 Customization
+The setup provides three clear entry points:
 
-Edit the scripts in `/scripts/` to:
-- Add your preferred tools
-- Pre-configure API keys
-- Include custom project templates
-- Add company-specific setup
+### **🆕 Complete Beginner**
+- Guided through `docs/beginner-setup-guide.md`
+- Start with `templates/workshop1-template/`
+- Learn AI-assisted development with Cursor
+- Progressive workshops build understanding
+
+### **🛠️ Some Programming Experience**  
+- Jump to `reference-implementation/complete-agent/`
+- Explore working AI agent implementation
+- Try workshop templates that interest them
+- Platform integration guides for real APIs
+
+### **🚀 Experienced Developer**
+- Start with complete agent source code
+- Review workshop components in `src/workshops/`
+- Customize and extend immediately
+- Contribute improvements back
+
+## 🔗 Platform Integrations
+
+The DWY agent includes real integrations with cutting-edge AI platforms:
+
+| Platform | Purpose | Workshop | Ready |
+|----------|---------|----------|-------|
+| [DeepInvent.ai](https://deepinvent.ai/) | Patent & Innovation | 1 | ✅ |
+| [Penumbra.ai](https://getpenumbra.ai/) | Memory & Organization | 2 | 🚧 |
+| [Sindarin.tech](https://sindarin.tech/) | Voice AI | 3 | 📋 |
+| [Texel.ai](https://texel.ai/) | Video Generation | 4 | 📋 |
+| [Toolhouse.ai](https://toolhouse.ai) | Tool Calling | 5 | 📋 |
+| [WebAI.com](https://webai.com/) | Local AI | 6 | 📋 |
+
+## 🆘 Troubleshooting & Fallbacks
+
+### **Built-in Error Handling:**
+- **Admin privileges needed?** Scripts detect and provide alternatives
+- **Slow internet?** Offline installation packages available
+- **Corporate firewall?** GitHub Codespaces fallback option
+- **Version conflicts?** Automatic version checking and upgrades
+
+### **Support Options:**
+- **Live helpers** during hackathon events
+- **Detailed documentation** in each workshop directory
+- **Cursor AI assistance** built into the IDE
+- **GitHub Issues** for bug reports and questions
+
+## 🔧 Technical Requirements
+
+### **Minimum System Requirements:**
+- **macOS**: 10.15+ with Homebrew support
+- **Windows**: Windows 10+ with PowerShell 5.1+
+- **Linux**: Ubuntu 18.04+, Fedora 32+, or Arch Linux
+- **RAM**: 4GB minimum, 8GB recommended
+- **Storage**: 2GB free space for all tools and project
+- **Network**: Internet connection for initial setup
+
+### **What Gets Configured:**
+- Git global settings (user.name, user.email, default branch)
+- Node.js with npm and project dependencies
+- Python with pip for additional tools
+- Environment files (.env) from templates
+- Cursor IDE with project opened and ready
+
+## 📊 Analytics & Insights
+
+The DigitalOcean deployment provides:
+- **Download tracking** for each platform script
+- **Setup completion rates** via deployment metrics
+- **Geographic distribution** of participants
+- **Error reporting** for continuous improvement
+
+## 🤝 Contributing & Customization
+
+### **For Event Organizers:**
+- Fork the repository for your event
+- Customize scripts with your branding
+- Add event-specific tools or configurations
+- Update platform integrations for your needs
+
+### **For Participants:**
+- All code is open source (MIT License)
+- Extend workshops with your own components
+- Share improvements via pull requests
+- Build on the foundation for your projects
 
 ---
 
-**Built for hackathons by [BHT Labs](https://github.com/jhillbht)** 🚀
+## 🌐 Live Deployment
+
+**Primary URL**: https://organizedai.vip  
+**Backup URL**: https://organizedai-hackathon-setup-vysvb.ondigitalocean.app
+
+### **Features:**
+- 🔄 **Auto-deploy** from GitHub updates
+- 🌍 **Global CDN** for fast worldwide access
+- 🔒 **HTTPS** with automatic SSL certificates
+- 📱 **Mobile-responsive** for QR code access
+- ⚡ **Zero downtime** deployment updates
+
+---
+
+**🤖 Ready to empower your hackathon participants with a complete AI agent development environment? Your attendees will go from zero to building sophisticated AI applications in minutes!** 
+
+**Visit [organizedai.vip](https://organizedai.vip) to see it in action! 🚀**
