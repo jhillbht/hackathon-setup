@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Hackathon Environment Setup Script
-# For complete beginners - Linux version (Ubuntu/Debian)
+# DWY Tool Calling LLM Agent Setup Script
+# For complete beginners - Linux version (Ubuntu/Debian/Fedora/Arch)
 
 set -e  # Exit on any error
 
@@ -48,8 +48,8 @@ detect_distro() {
 main() {
     clear
     echo "================================================="
-    echo "🎯 HACKATHON ENVIRONMENT SETUP"
-    echo "This will install everything you need to code!"
+    echo "🎯 DWY TOOL CALLING LLM AGENT SETUP"
+    echo "Setting up your AI agent development environment!"
     echo "Estimated time: 5-10 minutes"
     echo "================================================="
     echo ""
@@ -106,27 +106,7 @@ main() {
     git config --global pull.rebase false
     print_success "Git configured!"
 
-    # Step 4: Install Python
-    print_status "Installing Python..."
-    if ! command_exists python3; then
-        case $DISTRO in
-            ubuntu|debian)
-                $INSTALL_CMD python3 python3-pip python3-venv
-                ;;
-            fedora)
-                $INSTALL_CMD python3 python3-pip
-                ;;
-            arch|manjaro)
-                $INSTALL_CMD python python-pip
-                ;;
-            *)
-                $INSTALL_CMD python3 python3-pip
-                ;;
-        esac
-    fi
-    print_success "Python ready!"
-
-    # Step 5: Install Node.js
+    # Step 4: Install Node.js (required for the AI agent)
     print_status "Installing Node.js..."
     if ! command_exists node; then
         case $DISTRO in
@@ -145,8 +125,34 @@ main() {
                 $INSTALL_CMD nodejs npm
                 ;;
         esac
+    else
+        # Check Node.js version
+        node_version=$(node -v | cut -d 'v' -f 2 | cut -d '.' -f 1)
+        if [ "$node_version" -lt 18 ]; then
+            print_warning "Node.js version is too old. Please install Node.js 18+ manually."
+        fi
     fi
     print_success "Node.js ready!"
+
+    # Step 5: Install Python (still useful for some components)
+    print_status "Installing Python..."
+    if ! command_exists python3; then
+        case $DISTRO in
+            ubuntu|debian)
+                $INSTALL_CMD python3 python3-pip python3-venv
+                ;;
+            fedora)
+                $INSTALL_CMD python3 python3-pip
+                ;;
+            arch|manjaro)
+                $INSTALL_CMD python python-pip
+                ;;
+            *)
+                $INSTALL_CMD python3 python3-pip
+                ;;
+        esac
+    fi
+    print_success "Python ready!"
 
     # Step 6: Install Cursor IDE
     print_status "Installing Cursor IDE..."
@@ -192,13 +198,7 @@ EOF
     fi
     print_success "Cursor IDE ready!"
 
-    # Step 7: Install essential Python packages
-    print_status "Installing essential Python packages..."
-    python3 -m pip install --user --upgrade pip
-    python3 -m pip install --user requests numpy pandas openai python-dotenv flask fastapi
-    print_success "Python packages ready!"
-
-    # Step 8: Setup GitHub CLI for easier authentication
+    # Step 7: Setup GitHub CLI for easier authentication
     print_status "Installing GitHub CLI..."
     if ! command_exists gh; then
         case $DISTRO in
@@ -222,96 +222,41 @@ EOF
     fi
     print_success "GitHub CLI ready!"
 
-    # Step 9: Create starter project
-    print_status "Creating your hackathon project..."
+    # Step 8: Clone the DWY Tool Calling LLM Agent project
+    print_status "Setting up your DWY Tool Calling LLM Agent project..."
     
     # Create project directory
-    project_dir="$HOME/hackathon-project"
+    project_dir="$HOME/dwy-hackathon-project"
     if [ -d "$project_dir" ]; then
         print_warning "Project directory already exists. Creating backup..."
         mv "$project_dir" "$project_dir-backup-$(date +%s)"
     fi
     
-    mkdir -p "$project_dir"
+    # Clone the repository
+    git clone https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent.git "$project_dir"
     cd "$project_dir"
-
-    # Initialize git repository
-    git init
     
-    # Create starter files
-    cat > README.md << 'EOF'
-# My Hackathon Project 🚀
+    print_success "DWY Agent project cloned!"
 
-Welcome to your hackathon project! This is where your amazing ideas come to life.
-
-## Getting Started
-
-1. Open this folder in Cursor
-2. Start coding in `main.py` or `app.py`
-3. Have fun and build something awesome!
-
-## Useful Commands
-
-- Run Python: `python3 main.py`
-- Install packages: `pip3 install --user package-name`
-- Git commands: `git add .` then `git commit -m "your message"`
-
-Good luck! 🎯
-EOF
-
-    cat > main.py << 'EOF'
-#!/usr/bin/env python3
-"""
-Your hackathon project starts here!
-This is a simple starter template.
-"""
-
-def main():
-    print("🎯 Welcome to your hackathon project!")
-    print("🚀 Ready to build something amazing?")
+    # Step 9: Set up the complete agent
+    print_status "Installing project dependencies..."
+    cd reference-implementation/complete-agent
     
-    # Your code goes here
-    name = input("What's your name? ")
-    print(f"Hello {name}! Let's start coding! 💻")
-
-if __name__ == "__main__":
-    main()
-EOF
-
-    cat > requirements.txt << 'EOF'
-requests>=2.28.0
-numpy>=1.21.0
-pandas>=1.5.0
-openai>=1.0.0
-python-dotenv>=0.19.0
-flask>=2.0.0
-fastapi>=0.68.0
-EOF
-
-    cat > .env.example << 'EOF'
-# Copy this file to .env and add your API keys
-OPENAI_API_KEY=your_openai_api_key_here
-# Add other environment variables as needed
-EOF
-
-    # Create run script
-    cat > run.sh << 'EOF'
-#!/bin/bash
-echo "🚀 Running your hackathon project..."
-python3 main.py
-EOF
-    chmod +x run.sh
-
-    # Initial git commit
-    git add .
-    git commit -m "Initial hackathon project setup 🚀"
+    # Install dependencies
+    npm install
     
-    print_success "Starter project created!"
+    # Copy environment template
+    if [ -f ".env.example" ]; then
+        cp .env.example .env
+        print_success "Environment file created (.env)"
+    fi
+    
+    print_success "Project dependencies installed!"
 
     # Step 10: Final instructions
     echo ""
     echo "================================================="
-    print_success "🎉 SETUP COMPLETE!"
+    print_success "🎉 DWY AGENT SETUP COMPLETE!"
     echo "================================================="
     echo ""
     echo "📍 Your project is located at: $project_dir"
@@ -319,10 +264,21 @@ EOF
     echo "🚀 Next steps:"
     echo "1. Authenticate with GitHub: 'gh auth login'"
     echo "2. Open Cursor: 'cursor $project_dir' or use the desktop icon"
-    echo "3. Start coding in main.py"
-    echo "4. Test your setup: 'python3 main.py' or './run.sh'"
+    echo "3. Read the README.md to choose your learning path:"
+    echo "   • Complete Beginner: Start with docs/beginner-setup-guide.md"
+    echo "   • Some Experience: Try reference-implementation/complete-agent/"
+    echo "   • Experienced Dev: Jump into the workshops/ directory"
     echo ""
-    echo "💡 Need help? Ask a mentor or volunteer!"
+    echo "4. To run the AI agent: 'cd reference-implementation/complete-agent && npm start'"
+    echo ""
+    echo "💡 Need help? Check the docs/ directory or ask a mentor!"
+    echo ""
+    
+    # Show learning paths
+    echo "🎓 Choose your learning path:"
+    echo "   [1] Complete Beginner - Never coded before"
+    echo "   [2] Some Programming Experience"
+    echo "   [3] Experienced Developer"
     echo ""
     
     # Offer to open project in Cursor
@@ -336,7 +292,7 @@ EOF
         fi
     fi
     
-    print_success "You're all set! Happy hacking! 🎯"
+    print_success "You're all set to build AI agents! 🤖🎯"
     echo ""
     echo "Note: You may need to restart your terminal or run 'source ~/.bashrc' for all changes to take effect."
 }
