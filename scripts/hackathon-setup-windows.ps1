@@ -1,4 +1,4 @@
-# Hackathon Environment Setup Script for Windows
+# DWY Tool Calling LLM Agent Setup Script for Windows
 # PowerShell script for complete beginners
 
 # Set execution policy for this session
@@ -44,8 +44,8 @@ function Test-IsAdmin {
 function Start-HackathonSetup {
     Clear-Host
     Write-Host "=================================================" -ForegroundColor Cyan
-    Write-Host "🎯 HACKATHON ENVIRONMENT SETUP FOR WINDOWS" -ForegroundColor Cyan
-    Write-Host "This will install everything you need to code!" -ForegroundColor Cyan
+    Write-Host "🎯 DWY TOOL CALLING LLM AGENT SETUP" -ForegroundColor Cyan
+    Write-Host "Setting up your AI agent development environment!" -ForegroundColor Cyan
     Write-Host "Estimated time: 10-15 minutes" -ForegroundColor Cyan
     Write-Host "=================================================" -ForegroundColor Cyan
     Write-Host ""
@@ -91,21 +91,30 @@ function Start-HackathonSetup {
         }
         Write-SuccessMessage "Git ready!"
 
-        # Step 3: Install Python
+        # Step 3: Install Node.js (required for the AI agent)
+        Write-StatusMessage "Installing Node.js..."
+        if (-not (Test-CommandExists node)) {
+            choco install nodejs -y
+            refreshenv
+        } else {
+            # Check Node.js version
+            $nodeVersionOutput = node -v
+            $nodeVersion = [int]($nodeVersionOutput -replace 'v(\d+)\..*', '$1')
+            if ($nodeVersion -lt 18) {
+                Write-WarningMessage "Node.js version is too old. Installing latest version..."
+                choco upgrade nodejs -y
+                refreshenv
+            }
+        }
+        Write-SuccessMessage "Node.js ready!"
+
+        # Step 4: Install Python (still useful for some components)
         Write-StatusMessage "Installing Python..."
         if (-not (Test-CommandExists python)) {
             choco install python -y
             refreshenv
         }
         Write-SuccessMessage "Python ready!"
-
-        # Step 4: Install Node.js
-        Write-StatusMessage "Installing Node.js..."
-        if (-not (Test-CommandExists node)) {
-            choco install nodejs -y
-            refreshenv
-        }
-        Write-SuccessMessage "Node.js ready!"
 
         # Step 5: Install Cursor IDE
         Write-StatusMessage "Installing Cursor IDE..."
@@ -136,13 +145,7 @@ function Start-HackathonSetup {
         git config --global pull.rebase false
         Write-SuccessMessage "Git configured!"
 
-        # Step 7: Install essential Python packages
-        Write-StatusMessage "Installing essential Python packages..."
-        python -m pip install --upgrade pip
-        pip install requests numpy pandas openai python-dotenv flask fastapi
-        Write-SuccessMessage "Python packages ready!"
-
-        # Step 8: Install GitHub CLI
+        # Step 7: Install GitHub CLI
         Write-StatusMessage "Installing GitHub CLI..."
         if (-not (Test-CommandExists gh)) {
             choco install gh -y
@@ -150,96 +153,41 @@ function Start-HackathonSetup {
         }
         Write-SuccessMessage "GitHub CLI ready!"
 
-        # Step 9: Create starter project
-        Write-StatusMessage "Creating your hackathon project..."
+        # Step 8: Clone the DWY Tool Calling LLM Agent project
+        Write-StatusMessage "Setting up your DWY Tool Calling LLM Agent project..."
         
-        $projectDir = "$env:USERPROFILE\hackathon-project"
+        $projectDir = "$env:USERPROFILE\dwy-hackathon-project"
         if (Test-Path $projectDir) {
             Write-WarningMessage "Project directory already exists. Creating backup..."
             $backupDir = "$projectDir-backup-$(Get-Date -Format 'yyyyMMddHHmmss')"
             Move-Item $projectDir $backupDir
         }
         
-        New-Item -ItemType Directory -Path $projectDir -Force | Out-Null
+        # Clone the repository
+        git clone https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent.git $projectDir
         Set-Location $projectDir
-
-        # Initialize git repository
-        git init
-
-        # Create starter files
-        @"
-# My Hackathon Project 🚀
-
-Welcome to your hackathon project! This is where your amazing ideas come to life.
-
-## Getting Started
-
-1. Open this folder in Cursor
-2. Start coding in `main.py` or `app.py`
-3. Have fun and build something awesome!
-
-## Useful Commands
-
-- Run Python: `python main.py`
-- Install packages: `pip install package-name`
-- Git commands: `git add .` then `git commit -m "your message"`
-
-Good luck! 🎯
-"@ | Out-File -FilePath "README.md" -Encoding UTF8
-
-        @"
-#!/usr/bin/env python3
-"""
-Your hackathon project starts here!
-This is a simple starter template.
-"""
-
-def main():
-    print("🎯 Welcome to your hackathon project!")
-    print("🚀 Ready to build something amazing?")
-    
-    # Your code goes here
-    name = input("What's your name? ")
-    print(f"Hello {name}! Let's start coding! 💻")
-
-if __name__ == "__main__":
-    main()
-"@ | Out-File -FilePath "main.py" -Encoding UTF8
-
-        @"
-requests>=2.28.0
-numpy>=1.21.0
-pandas>=1.5.0
-openai>=1.0.0
-python-dotenv>=0.19.0
-flask>=2.0.0
-fastapi>=0.68.0
-"@ | Out-File -FilePath "requirements.txt" -Encoding UTF8
-
-        @"
-# Copy this file to .env and add your API keys
-OPENAI_API_KEY=your_openai_api_key_here
-# Add other environment variables as needed
-"@ | Out-File -FilePath ".env.example" -Encoding UTF8
-
-        # Create a simple batch file to run the project
-        @"
-@echo off
-echo 🚀 Running your hackathon project...
-python main.py
-pause
-"@ | Out-File -FilePath "run.bat" -Encoding ASCII
-
-        # Initial git commit
-        git add .
-        git commit -m "Initial hackathon project setup 🚀"
         
-        Write-SuccessMessage "Starter project created!"
+        Write-SuccessMessage "DWY Agent project cloned!"
+
+        # Step 9: Set up the complete agent
+        Write-StatusMessage "Installing project dependencies..."
+        Set-Location "reference-implementation\complete-agent"
+        
+        # Install dependencies
+        npm install
+        
+        # Copy environment template
+        if (Test-Path ".env.example") {
+            Copy-Item ".env.example" ".env"
+            Write-SuccessMessage "Environment file created (.env)"
+        }
+        
+        Write-SuccessMessage "Project dependencies installed!"
 
         # Step 10: Final instructions
         Write-Host ""
         Write-Host "=================================================" -ForegroundColor Green
-        Write-SuccessMessage "🎉 SETUP COMPLETE!"
+        Write-SuccessMessage "🎉 DWY AGENT SETUP COMPLETE!"
         Write-Host "=================================================" -ForegroundColor Green
         Write-Host ""
         Write-Host "📍 Your project is located at: $projectDir" -ForegroundColor White
@@ -247,10 +195,21 @@ pause
         Write-Host "🚀 Next steps:" -ForegroundColor White
         Write-Host "1. Authenticate with GitHub: 'gh auth login'" -ForegroundColor White
         Write-Host "2. Open Cursor and select your project folder" -ForegroundColor White
-        Write-Host "3. Start coding in main.py" -ForegroundColor White
-        Write-Host "4. Test your setup: double-click 'run.bat'" -ForegroundColor White
+        Write-Host "3. Read the README.md to choose your learning path:" -ForegroundColor White
+        Write-Host "   • Complete Beginner: Start with docs\beginner-setup-guide.md" -ForegroundColor White
+        Write-Host "   • Some Experience: Try reference-implementation\complete-agent\" -ForegroundColor White
+        Write-Host "   • Experienced Dev: Jump into the workshops\ directory" -ForegroundColor White
         Write-Host ""
-        Write-Host "💡 Need help? Ask a mentor or volunteer!" -ForegroundColor Yellow
+        Write-Host "4. To run the AI agent: 'cd reference-implementation\complete-agent && npm start'" -ForegroundColor White
+        Write-Host ""
+        Write-Host "💡 Need help? Check the docs\ directory or ask a mentor!" -ForegroundColor Yellow
+        Write-Host ""
+        
+        # Show learning paths
+        Write-Host "🎓 Choose your learning path:" -ForegroundColor Cyan
+        Write-Host "   [1] Complete Beginner - Never coded before" -ForegroundColor White
+        Write-Host "   [2] Some Programming Experience" -ForegroundColor White
+        Write-Host "   [3] Experienced Developer" -ForegroundColor White
         Write-Host ""
         
         # Offer to open project in File Explorer and Cursor
@@ -266,7 +225,7 @@ pause
             }
         }
         
-        Write-SuccessMessage "You're all set! Happy hacking! 🎯"
+        Write-SuccessMessage "You're all set to build AI agents! 🤖🎯"
         
     } catch {
         Write-ErrorMessage "An error occurred during setup: $($_.Exception.Message)"
