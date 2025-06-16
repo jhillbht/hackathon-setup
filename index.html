@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrganizedAI.vip - Hackathon Environment Setup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+        
+        .header {
+            margin-bottom: 2rem;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .os-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .os-button {
+            padding: 2rem 1rem;
+            border: 3px solid #e1e5e9;
+            border-radius: 15px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .os-button:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+        
+        .os-icon {
+            font-size: 3rem;
+        }
+        
+        .os-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .instructions {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .step {
+            margin: 1rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        
+        .help-section {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #fff3cd;
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .download-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 1rem 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .download-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .os-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">🚀 OrganizedAI Setup</h1>
+            <p class="subtitle">Get your coding environment ready in 5 minutes!</p>
+            <p style="font-size: 0.9rem; color: #888; margin-bottom: 1rem;">organizedai.vip</p>
+        </div>
+        
+        <div id="os-selection">
+            <p>Click your computer type to get started:</p>
+            
+            <div class="os-buttons">
+                <button class="os-button" onclick="selectOS('mac')">
+                    <div class="os-icon">🍎</div>
+                    <div class="os-name">Mac</div>
+                </button>
+                
+                <button class="os-button" onclick="selectOS('windows')">
+                    <div class="os-icon">🪟</div>
+                    <div class="os-name">Windows</div>
+                </button>
+                
+                <button class="os-button" onclick="selectOS('linux')">
+                    <div class="os-icon">🐧</div>
+                    <div class="os-name">Linux</div>
+                </button>
+            </div>
+        </div>
+        
+        <div id="instructions" class="hidden">
+            <div id="mac-instructions" class="hidden">
+                <h3>🍎 Mac Setup Instructions</h3>
+                <div class="instructions">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Download the setup script by clicking the button below</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Open Terminal (press Cmd+Space, type "Terminal", press Enter)</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Drag the downloaded file into Terminal and press Enter</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Follow the prompts - it will ask for your name and email</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div>Wait 5-10 minutes while everything installs</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div>Start coding! 🎉</div>
+                    </div>
+                </div>
+                <a href="./scripts/hackathon-setup-mac.sh" class="download-button" download>
+                    📥 Download Mac Setup Script
+                </a>
+            </div>
+            
+            <div id="windows-instructions" class="hidden">
+                <h3>🪟 Windows Setup Instructions</h3>
+                <div class="instructions">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Download the setup script by clicking the button below</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Right-click the downloaded file and select "Run as administrator"</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>If Windows asks about running the script, click "Yes"</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Follow the prompts - it will ask for your name and email</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div>Wait 5-10 minutes while everything installs</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div>Start coding! 🎉</div>
+                    </div>
+                </div>
+                <a href="./scripts/hackathon-setup-windows.ps1" class="download-button" download>
+                    📥 Download Windows Setup Script
+                </a>
+            </div>
+            
+            <div id="linux-instructions" class="hidden">
+                <h3>🐧 Linux Setup Instructions</h3>
+                <div class="instructions">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Download the setup script by clicking the button below</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Open Terminal (Ctrl+Alt+T)</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Navigate to Downloads: <code>cd ~/Downloads</code></div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Make script executable: <code>chmod +x hackathon-setup-linux.sh</code></div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div>Run the script: <code>./hackathon-setup-linux.sh</code></div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div>Start coding! 🎉</div>
+                    </div>
+                </div>
+                <a href="./scripts/hackathon-setup-linux.sh" class="download-button" download>
+                    📥 Download Linux Setup Script
+                </a>
+            </div>
+            
+            <button onclick="goBack()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                ← Choose Different OS
+            </button>
+        </div>
+        
+        <div class="help-section">
+            <strong>💡 Need Help?</strong><br>
+            Raise your hand and a volunteer will come help you!<br>
+            <strong>Having issues?</strong> We also have backup options using your web browser.
+        </div>
+        
+        <div style="margin-top: 2rem; font-size: 0.9rem; color: #666;">
+            This will install: Git, Python, Node.js, Cursor IDE, and create your first project
+        </div>
+    </div>
+
+    <script>
+        function selectOS(os) {
+            // Hide OS selection
+            document.getElementById('os-selection').classList.add('hidden');
+            
+            // Show instructions container
+            document.getElementById('instructions').classList.remove('hidden');
+            
+            // Show specific OS instructions
+            document.getElementById(os + '-instructions').classList.remove('hidden');
+        }
+        
+        function goBack() {
+            // Hide all instructions
+            document.getElementById('instructions').classList.add('hidden');
+            document.getElementById('mac-instructions').classList.add('hidden');
+            document.getElementById('windows-instructions').classList.add('hidden');
+            document.getElementById('linux-instructions').classList.add('hidden');
+            
+            // Show OS selection
+            document.getElementById('os-selection').classList.remove('hidden');
+        }
+        
+        // Auto-detect OS and highlight appropriate button
+        function detectOS() {
+            let userAgent = navigator.userAgent.toLowerCase();
+            if (userAgent.includes('mac')) {
+                document.querySelector('[onclick="selectOS(\'mac\')"]').style.borderColor = '#667eea';
+            } else if (userAgent.includes('win')) {
+                document.querySelector('[onclick="selectOS(\'windows\')"]').style.borderColor = '#667eea';
+            } else if (userAgent.includes('linux')) {
+                document.querySelector('[onclick="selectOS(\'linux\')"]').style.borderColor = '#667eea';
+            }
+        }
+        
+        detectOS();
+    </script>
+</body>
+</html>
