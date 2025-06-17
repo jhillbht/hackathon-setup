@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setup.OrganizedAI.vip - DWY Tool Calling LLM Agent Setup</title>
+    <title>Setup.OrganizedAI.vip - 🤖 Organized AI Dev Setup</title>
     <style>
         * {
             margin: 0;
@@ -13,23 +13,24 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #FFD700 0%, #FFA000 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #333;
+            color: #2C1810;
             line-height: 1.6;
         }
         
         .container {
-            background: white;
+            background: linear-gradient(135deg, #FFFBF0 0%, #FFF3E0 100%);
             padding: 3rem;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(255, 193, 7, 0.3);
             text-align: center;
             max-width: 800px;
             width: 90%;
+            border: 3px solid #FFB300;
         }
         
         .header {
@@ -40,7 +41,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #FFD700, #FF8F00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -48,23 +49,25 @@
         
         .subtitle {
             font-size: 1.2rem;
-            color: #666;
+            color: #3E2723;
             margin-bottom: 1rem;
+            font-weight: 600;
         }
         
         .project-description {
-            background: #f8f9ff;
+            background: linear-gradient(90deg, #FFF8E1 0%, #FFE0B2 100%);
             padding: 1.5rem;
-            border-radius: 10px;
+            border-radius: 15px;
             margin: 1.5rem 0;
-            border-left: 4px solid #667eea;
+            border-left: 5px solid #FF8F00;
             text-align: left;
+            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.2);
         }
         
         .project-title {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #667eea;
+            color: #FF8F00;
             margin-bottom: 0.5rem;
         }
         
@@ -80,6 +83,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            color: #2C1810;
+            font-weight: 500;
         }
         
         .os-buttons {
@@ -91,23 +96,25 @@
         
         .os-button {
             padding: 2rem 1rem;
-            border: 3px solid #e1e5e9;
+            border: 3px solid #FFB300;
             border-radius: 15px;
-            background: white;
+            background: linear-gradient(135deg, #FFF8E1 0%, #FFE0B2 100%);
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            color: #333;
+            color: #2C1810;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1rem;
+            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.2);
         }
         
         .os-button:hover {
-            border-color: #667eea;
+            border-color: #FF8F00;
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 12px 32px rgba(255, 193, 7, 0.4);
+            background: linear-gradient(135deg, #FFD700 0%, #FFA000 100%);
         }
         
         .os-icon {
@@ -120,11 +127,13 @@
         }
         
         .instructions {
-            background: #f8f9fa;
+            background: linear-gradient(90deg, #FFFDE7 0%, #FFF176 100%);
             padding: 1.5rem;
-            border-radius: 10px;
+            border-radius: 15px;
             margin: 2rem 0;
             text-align: left;
+            border: 2px solid #FFC107;
+            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.2);
         }
         
         .step {
@@ -135,10 +144,10 @@
         }
         
         .step-number {
-            background: #667eea;
-            color: white;
-            width: 24px;
-            height: 24px;
+            background: linear-gradient(135deg, #FFD700, #FF8F00);
+            color: #2C1810;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -146,29 +155,34 @@
             font-weight: bold;
             font-size: 0.9rem;
             flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
         }
         
         .help-section {
             margin-top: 2rem;
-            padding: 1rem;
-            background: #fff3cd;
-            border-radius: 10px;
-            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            background: linear-gradient(90deg, #FFE082 0%, #FFC107 100%);
+            border-radius: 15px;
+            border-left: 5px solid #FF8F00;
+            color: #2C1810;
+            font-weight: 500;
+            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.2);
         }
         
         .fallback-section {
             margin-top: 2rem;
             padding: 1.5rem;
-            background: #e8f4fd;
-            border-radius: 10px;
-            border-left: 4px solid #0066cc;
+            background: linear-gradient(90deg, #FFF59D 0%, #FFCC02 100%);
+            border-radius: 15px;
+            border-left: 5px solid #FF8F00;
             text-align: left;
+            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.2);
         }
         
         .fallback-title {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #0066cc;
+            color: #2C1810;
             margin-bottom: 1rem;
             text-align: center;
         }
@@ -180,53 +194,68 @@
         }
         
         .fallback-option {
-            background: white;
+            background: linear-gradient(90deg, #FFFBF0 0%, #FFF3E0 100%);
             padding: 1rem;
-            border-radius: 8px;
-            border: 1px solid #d6e9f7;
+            border-radius: 10px;
+            border: 2px solid #FFB300;
+            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.1);
         }
         
         .fallback-option-title {
             font-weight: 600;
-            color: #0066cc;
+            color: #FF8F00;
             margin-bottom: 0.5rem;
         }
         
         .download-button {
             display: inline-block;
             padding: 1rem 2rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+            background: linear-gradient(135deg, #FFD700, #FF8F00);
+            color: #2C1810;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             margin: 1rem 0;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.3);
+            border: 2px solid #FFB300;
         }
         
         .download-button:hover {
             transform: scale(1.05);
+            box-shadow: 0 6px 24px rgba(255, 193, 7, 0.4);
         }
         
         .fallback-button {
             display: inline-block;
             padding: 0.75rem 1.5rem;
-            background: #0066cc;
-            color: white;
+            background: linear-gradient(135deg, #FFC107, #FF8F00);
+            color: #2C1810;
             text-decoration: none;
             border-radius: 25px;
             font-weight: 600;
             margin: 0.5rem 0;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2);
         }
         
         .fallback-button:hover {
             transform: scale(1.05);
-            background: #0052a3;
+            background: linear-gradient(135deg, #FFD700, #FFA000);
+            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.3);
         }
         
         .hidden {
             display: none;
+        }
+        
+        code {
+            background: rgba(255, 193, 7, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #2C1810;
+            font-weight: 600;
         }
         
         @media (max-width: 768px) {
@@ -247,27 +276,27 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="title">🤖 DWY AI Agent Setup</h1>
+            <h1 class="title">🤖 Organized AI Dev Setup</h1>
             <p class="subtitle">Get your AI development environment ready in 5 minutes!</p>
-            <p style="font-size: 0.9rem; color: #888; margin-bottom: 1rem;">setup.organizedai.vip</p>
+            <p style="font-size: 0.9rem; color: #5D4037; margin-bottom: 1rem; font-weight: 500;">setup.organizedai.vip</p>
         </div>
         
         <div class="project-description">
-            <div class="project-title">🎯 DWY Tool Calling LLM Agent</div>
-            <p>You'll be setting up the complete <strong>Done With You (DWY) Tool Calling LLM Agent</strong> - a comprehensive AI agent project with progressive workshops, platform integrations, and real-world applications.</p>
+            <div class="project-title">🎯 Organized AI Development Environment</div>
+            <p>You'll be setting up the complete <strong>🤖 Organized AI Dev Setup</strong> - a comprehensive AI-powered development environment with progressive workshops, platform integrations, and real-world applications for human-AI collaboration.</p>
             
             <div class="features">
-                <div class="feature">✅ 6 Progressive Workshops</div>
-                <div class="feature">🧠 Knowledge Graph Memory</div>
-                <div class="feature">🎥 AI Video Generation</div>
-                <div class="feature">🔗 Tool Calling & MCP</div>
-                <div class="feature">🎨 Marketing AI Services</div>
-                <div class="feature">🏠 Local AI Deployment</div>
+                <div class="feature">✅ 🏗️ Project Planning Systems</div>
+                <div class="feature">✅ 🧠 Knowledge Graph Memory</div>
+                <div class="feature">✅ 🎬 AI Video Generation</div>
+                <div class="feature">✅ 🔧 Tool Calling & MCP</div>
+                <div class="feature">✅ 💼 Marketing AI Services</div>
+                <div class="feature">✅ 🤖 Local AI Deployment</div>
             </div>
         </div>
         
         <div id="os-selection">
-            <p>Click your computer type to get started:</p>
+            <p style="font-weight: 600; color: #2C1810; margin-bottom: 1rem;">Click your computer type to get started:</p>
             
             <div class="os-buttons">
                 <button class="os-button" onclick="selectOS('mac')">
@@ -289,7 +318,7 @@
         
         <div id="instructions" class="hidden">
             <div id="mac-instructions" class="hidden">
-                <h3>🍎 Mac Setup Instructions</h3>
+                <h3 style="color: #2C1810; margin-bottom: 1rem;">🍎 Mac Setup Instructions</h3>
                 <div class="instructions">
                     <div class="step">
                         <div class="step-number">1</div>
@@ -309,11 +338,11 @@
                     </div>
                     <div class="step">
                         <div class="step-number">5</div>
-                        <div>Wait 5-10 minutes while your AI agent environment installs</div>
+                        <div>Wait 5-10 minutes while your AI development environment installs</div>
                     </div>
                     <div class="step">
                         <div class="step-number">6</div>
-                        <div>Start building AI agents! 🤖</div>
+                        <div>Start building with AI! 🤖✨</div>
                     </div>
                 </div>
                 <a href="./scripts/hackathon-setup-mac.sh" class="download-button" download>
@@ -322,12 +351,12 @@
                 
                 <div class="fallback-section">
                     <div class="fallback-title">🚨 Having Trouble? No Worries!</div>
-                    <p style="margin-bottom: 1rem;">If the setup script doesn't work (admin permissions, corporate firewall, etc.), use one of these backup options:</p>
+                    <p style="margin-bottom: 1rem; color: #2C1810;">If the setup script doesn't work (admin permissions, corporate firewall, etc.), use one of these backup options:</p>
                     
                     <div class="fallback-options">
                         <div class="fallback-option">
                             <div class="fallback-option-title">🌐 Option 1: GitHub Codespaces (Recommended)</div>
-                            <p>Get a complete development environment in your browser - no installation needed!</p>
+                            <p style="color: #2C1810;">Get a complete development environment in your browser - no installation needed!</p>
                             <a href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button" target="_blank">
                                 🚀 Open in Codespaces
                             </a>
@@ -335,7 +364,7 @@
                         
                         <div class="fallback-option">
                             <div class="fallback-option-title">💻 Option 2: VS Code Dev Container</div>
-                            <p>If you have VS Code and Docker installed, use our dev container setup.</p>
+                            <p style="color: #2C1810;">If you have VS Code and Docker installed, use our dev container setup.</p>
                             <a href="vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button">
                                 📦 Open Dev Container
                             </a>
@@ -345,7 +374,7 @@
             </div>
             
             <div id="windows-instructions" class="hidden">
-                <h3>🪟 Windows Setup Instructions</h3>
+                <h3 style="color: #2C1810; margin-bottom: 1rem;">🪟 Windows Setup Instructions</h3>
                 <div class="instructions">
                     <div class="step">
                         <div class="step-number">1</div>
@@ -365,11 +394,11 @@
                     </div>
                     <div class="step">
                         <div class="step-number">5</div>
-                        <div>Wait 10-15 minutes while your AI agent environment installs</div>
+                        <div>Wait 10-15 minutes while your AI development environment installs</div>
                     </div>
                     <div class="step">
                         <div class="step-number">6</div>
-                        <div>Start building AI agents! 🤖</div>
+                        <div>Start building with AI! 🤖✨</div>
                     </div>
                 </div>
                 <a href="./scripts/hackathon-setup-windows.ps1" class="download-button" download>
@@ -378,12 +407,12 @@
                 
                 <div class="fallback-section">
                     <div class="fallback-title">🚨 Having Trouble? No Worries!</div>
-                    <p style="margin-bottom: 1rem;">If the setup script doesn't work (admin permissions, corporate firewall, antivirus blocking, etc.), use one of these backup options:</p>
+                    <p style="margin-bottom: 1rem; color: #2C1810;">If the setup script doesn't work (admin permissions, corporate firewall, antivirus blocking, etc.), use one of these backup options:</p>
                     
                     <div class="fallback-options">
                         <div class="fallback-option">
                             <div class="fallback-option-title">🌐 Option 1: GitHub Codespaces (Recommended)</div>
-                            <p>Get a complete development environment in your browser - no installation needed!</p>
+                            <p style="color: #2C1810;">Get a complete development environment in your browser - no installation needed!</p>
                             <a href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button" target="_blank">
                                 🚀 Open in Codespaces
                             </a>
@@ -391,7 +420,7 @@
                         
                         <div class="fallback-option">
                             <div class="fallback-option-title">💻 Option 2: VS Code Dev Container</div>
-                            <p>If you have VS Code and Docker Desktop installed, use our dev container setup.</p>
+                            <p style="color: #2C1810;">If you have VS Code and Docker Desktop installed, use our dev container setup.</p>
                             <a href="vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button">
                                 📦 Open Dev Container
                             </a>
@@ -401,7 +430,7 @@
             </div>
             
             <div id="linux-instructions" class="hidden">
-                <h3>🐧 Linux Setup Instructions</h3>
+                <h3 style="color: #2C1810; margin-bottom: 1rem;">🐧 Linux Setup Instructions</h3>
                 <div class="instructions">
                     <div class="step">
                         <div class="step-number">1</div>
@@ -425,7 +454,7 @@
                     </div>
                     <div class="step">
                         <div class="step-number">6</div>
-                        <div>Start building AI agents! 🤖</div>
+                        <div>Start building with AI! 🤖✨</div>
                     </div>
                 </div>
                 <a href="./scripts/hackathon-setup-linux.sh" class="download-button" download>
@@ -434,12 +463,12 @@
                 
                 <div class="fallback-section">
                     <div class="fallback-title">🚨 Having Trouble? No Worries!</div>
-                    <p style="margin-bottom: 1rem;">If the setup script doesn't work (permissions, package conflicts, etc.), use one of these backup options:</p>
+                    <p style="margin-bottom: 1rem; color: #2C1810;">If the setup script doesn't work (permissions, package conflicts, etc.), use one of these backup options:</p>
                     
                     <div class="fallback-options">
                         <div class="fallback-option">
                             <div class="fallback-option-title">🌐 Option 1: GitHub Codespaces (Recommended)</div>
-                            <p>Get a complete development environment in your browser - no installation needed!</p>
+                            <p style="color: #2C1810;">Get a complete development environment in your browser - no installation needed!</p>
                             <a href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button" target="_blank">
                                 🚀 Open in Codespaces
                             </a>
@@ -447,7 +476,7 @@
                         
                         <div class="fallback-option">
                             <div class="fallback-option-title">💻 Option 2: VS Code Dev Container</div>
-                            <p>If you have VS Code and Docker installed, use our dev container setup.</p>
+                            <p style="color: #2C1810;">If you have VS Code and Docker installed, use our dev container setup.</p>
                             <a href="vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button">
                                 📦 Open Dev Container
                             </a>
@@ -456,7 +485,7 @@
                 </div>
             </div>
             
-            <button onclick="goBack()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            <button onclick="goBack()" style="margin-top: 1rem; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #FFB300, #FF8F00); color: #2C1810; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2);">
                 ← Choose Different OS
             </button>
         </div>
@@ -467,8 +496,8 @@
             <strong>Setup not working?</strong> We have backup browser-based options that work on any computer.
         </div>
         
-        <div style="margin-top: 2rem; font-size: 0.9rem; color: #666;">
-            This will install: Git, Node.js, Python, Cursor IDE, and the complete DWY Tool Calling LLM Agent project<br>
+        <div style="margin-top: 2rem; font-size: 0.9rem; color: #5D4037; font-weight: 500;">
+            This will install: Git, Node.js, Python, Cursor IDE, and the complete 🤖 Organized AI Dev Setup<br>
             <strong>Can't install?</strong> No problem - use our browser-based backup options above!
         </div>
     </div>
@@ -499,12 +528,17 @@
         // Auto-detect OS and highlight appropriate button
         function detectOS() {
             let userAgent = navigator.userAgent.toLowerCase();
+            let buttons = document.querySelectorAll('.os-button');
+            
             if (userAgent.includes('mac')) {
-                document.querySelector('[onclick="selectOS(\\\'mac\\\')"]').style.borderColor = '#667eea';
+                buttons[0].style.borderColor = '#FF8F00';
+                buttons[0].style.background = 'linear-gradient(135deg, #FFD700 0%, #FFA000 100%)';
             } else if (userAgent.includes('win')) {
-                document.querySelector('[onclick="selectOS(\\\'windows\\\')"]').style.borderColor = '#667eea';
+                buttons[1].style.borderColor = '#FF8F00';
+                buttons[1].style.background = 'linear-gradient(135deg, #FFD700 0%, #FFA000 100%)';
             } else if (userAgent.includes('linux')) {
-                document.querySelector('[onclick="selectOS(\\\'linux\\\')"]').style.borderColor = '#667eea';
+                buttons[2].style.borderColor = '#FF8F00';
+                buttons[2].style.background = 'linear-gradient(135deg, #FFD700 0%, #FFA000 100%)';
             }
         }
         
