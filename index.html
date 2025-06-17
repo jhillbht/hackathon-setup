@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OrganizedAI.vip - DWY Tool Calling LLM Agent Setup</title>
+    <title>Setup.OrganizedAI.vip - DWY Tool Calling LLM Agent Setup</title>
     <style>
         * {
             margin: 0;
@@ -28,7 +28,7 @@
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             text-align: center;
-            max-width: 700px;
+            max-width: 800px;
             width: 90%;
         }
         
@@ -156,6 +156,42 @@
             border-left: 4px solid #ffc107;
         }
         
+        .fallback-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #e8f4fd;
+            border-radius: 10px;
+            border-left: 4px solid #0066cc;
+            text-align: left;
+        }
+        
+        .fallback-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0066cc;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .fallback-options {
+            display: grid;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .fallback-option {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #d6e9f7;
+        }
+        
+        .fallback-option-title {
+            font-weight: 600;
+            color: #0066cc;
+            margin-bottom: 0.5rem;
+        }
+        
         .download-button {
             display: inline-block;
             padding: 1rem 2rem;
@@ -170,6 +206,23 @@
         
         .download-button:hover {
             transform: scale(1.05);
+        }
+        
+        .fallback-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            margin: 0.5rem 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .fallback-button:hover {
+            transform: scale(1.05);
+            background: #0052a3;
         }
         
         .hidden {
@@ -196,7 +249,7 @@
         <div class="header">
             <h1 class="title">🤖 DWY AI Agent Setup</h1>
             <p class="subtitle">Get your AI development environment ready in 5 minutes!</p>
-            <p style="font-size: 0.9rem; color: #888; margin-bottom: 1rem;">organizedai.vip</p>
+            <p style="font-size: 0.9rem; color: #888; margin-bottom: 1rem;">setup.organizedai.vip</p>
         </div>
         
         <div class="project-description">
@@ -266,6 +319,29 @@
                 <a href="./scripts/hackathon-setup-mac.sh" class="download-button" download>
                     📥 Download Mac Setup Script
                 </a>
+                
+                <div class="fallback-section">
+                    <div class="fallback-title">🚨 Having Trouble? No Worries!</div>
+                    <p style="margin-bottom: 1rem;">If the setup script doesn't work (admin permissions, corporate firewall, etc.), use one of these backup options:</p>
+                    
+                    <div class="fallback-options">
+                        <div class="fallback-option">
+                            <div class="fallback-option-title">🌐 Option 1: GitHub Codespaces (Recommended)</div>
+                            <p>Get a complete development environment in your browser - no installation needed!</p>
+                            <a href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button" target="_blank">
+                                🚀 Open in Codespaces
+                            </a>
+                        </div>
+                        
+                        <div class="fallback-option">
+                            <div class="fallback-option-title">💻 Option 2: VS Code Dev Container</div>
+                            <p>If you have VS Code and Docker installed, use our dev container setup.</p>
+                            <a href="vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button">
+                                📦 Open Dev Container
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div id="windows-instructions" class="hidden">
@@ -299,6 +375,29 @@
                 <a href="./scripts/hackathon-setup-windows.ps1" class="download-button" download>
                     📥 Download Windows Setup Script
                 </a>
+                
+                <div class="fallback-section">
+                    <div class="fallback-title">🚨 Having Trouble? No Worries!</div>
+                    <p style="margin-bottom: 1rem;">If the setup script doesn't work (admin permissions, corporate firewall, antivirus blocking, etc.), use one of these backup options:</p>
+                    
+                    <div class="fallback-options">
+                        <div class="fallback-option">
+                            <div class="fallback-option-title">🌐 Option 1: GitHub Codespaces (Recommended)</div>
+                            <p>Get a complete development environment in your browser - no installation needed!</p>
+                            <a href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button" target="_blank">
+                                🚀 Open in Codespaces
+                            </a>
+                        </div>
+                        
+                        <div class="fallback-option">
+                            <div class="fallback-option-title">💻 Option 2: VS Code Dev Container</div>
+                            <p>If you have VS Code and Docker Desktop installed, use our dev container setup.</p>
+                            <a href="vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button">
+                                📦 Open Dev Container
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div id="linux-instructions" class="hidden">
@@ -332,6 +431,29 @@
                 <a href="./scripts/hackathon-setup-linux.sh" class="download-button" download>
                     📥 Download Linux Setup Script
                 </a>
+                
+                <div class="fallback-section">
+                    <div class="fallback-title">🚨 Having Trouble? No Worries!</div>
+                    <p style="margin-bottom: 1rem;">If the setup script doesn't work (permissions, package conflicts, etc.), use one of these backup options:</p>
+                    
+                    <div class="fallback-options">
+                        <div class="fallback-option">
+                            <div class="fallback-option-title">🌐 Option 1: GitHub Codespaces (Recommended)</div>
+                            <p>Get a complete development environment in your browser - no installation needed!</p>
+                            <a href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button" target="_blank">
+                                🚀 Open in Codespaces
+                            </a>
+                        </div>
+                        
+                        <div class="fallback-option">
+                            <div class="fallback-option-title">💻 Option 2: VS Code Dev Container</div>
+                            <p>If you have VS Code and Docker installed, use our dev container setup.</p>
+                            <a href="vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button">
+                                📦 Open Dev Container
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <button onclick="goBack()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer;">
@@ -342,11 +464,12 @@
         <div class="help-section">
             <strong>💡 Need Help?</strong><br>
             Raise your hand and a volunteer will come help you!<br>
-            <strong>Having issues?</strong> We also have backup options using your web browser.
+            <strong>Setup not working?</strong> We have backup browser-based options that work on any computer.
         </div>
         
         <div style="margin-top: 2rem; font-size: 0.9rem; color: #666;">
-            This will install: Git, Node.js, Python, Cursor IDE, and the complete DWY Tool Calling LLM Agent project
+            This will install: Git, Node.js, Python, Cursor IDE, and the complete DWY Tool Calling LLM Agent project<br>
+            <strong>Can't install?</strong> No problem - use our browser-based backup options above!
         </div>
     </div>
 
@@ -377,11 +500,11 @@
         function detectOS() {
             let userAgent = navigator.userAgent.toLowerCase();
             if (userAgent.includes('mac')) {
-                document.querySelector('[onclick="selectOS(\'mac\')"]').style.borderColor = '#667eea';
+                document.querySelector('[onclick="selectOS(\\\'mac\\\')"]').style.borderColor = '#667eea';
             } else if (userAgent.includes('win')) {
-                document.querySelector('[onclick="selectOS(\'windows\')"]').style.borderColor = '#667eea';
+                document.querySelector('[onclick="selectOS(\\\'windows\\\')"]').style.borderColor = '#667eea';
             } else if (userAgent.includes('linux')) {
-                document.querySelector('[onclick="selectOS(\'linux\')"]').style.borderColor = '#667eea';
+                document.querySelector('[onclick="selectOS(\\\'linux\\\')"]').style.borderColor = '#667eea';
             }
         }
         
