@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setup.OrganizedAI.vip - 🤖 Organized AI Dev Setup</title>
+    <title>Setup.OrganizedAI.vip - Organized AI Dev Setup</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA000 100%);
+            background: linear-gradient(135deg, #F4D03F 0%, #E6B800 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -26,7 +26,7 @@
             background: linear-gradient(135deg, #FFFBF0 0%, #FFF3E0 100%);
             padding: 3rem;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(255, 193, 7, 0.3);
+            box-shadow: 0 20px 40px rgba(244, 208, 63, 0.3);
             text-align: center;
             max-width: 800px;
             width: 90%;
@@ -37,11 +37,24 @@
             margin-bottom: 2rem;
         }
         
+        .logo-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            filter: drop-shadow(0 4px 8px rgba(244, 208, 63, 0.4));
+        }
+        
         .title {
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFD700, #FF8F00);
+            background: linear-gradient(135deg, #F4D03F, #D2B48C);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -59,15 +72,15 @@
             padding: 1.5rem;
             border-radius: 15px;
             margin: 1.5rem 0;
-            border-left: 5px solid #FF8F00;
+            border-left: 5px solid #D2B48C;
             text-align: left;
-            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.2);
+            box-shadow: 0 4px 16px rgba(244, 208, 63, 0.2);
         }
         
         .project-title {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #FF8F00;
+            color: #8B4513;
             margin-bottom: 0.5rem;
         }
         
@@ -96,7 +109,7 @@
         
         .os-button {
             padding: 2rem 1rem;
-            border: 3px solid #FFB300;
+            border: 3px solid #D2B48C;
             border-radius: 15px;
             background: linear-gradient(135deg, #FFF8E1 0%, #FFE0B2 100%);
             cursor: pointer;
@@ -107,14 +120,14 @@
             flex-direction: column;
             align-items: center;
             gap: 1rem;
-            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.2);
+            box-shadow: 0 4px 16px rgba(244, 208, 63, 0.2);
         }
         
         .os-button:hover {
-            border-color: #FF8F00;
+            border-color: #8B4513;
             transform: translateY(-5px);
-            box-shadow: 0 12px 32px rgba(255, 193, 7, 0.4);
-            background: linear-gradient(135deg, #FFD700 0%, #FFA000 100%);
+            box-shadow: 0 12px 32px rgba(244, 208, 63, 0.4);
+            background: linear-gradient(135deg, #F4D03F 0%, #E6B800 100%);
         }
         
         .os-icon {
@@ -132,8 +145,8 @@
             border-radius: 15px;
             margin: 2rem 0;
             text-align: left;
-            border: 2px solid #FFC107;
-            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.2);
+            border: 2px solid #F4D03F;
+            box-shadow: 0 4px 16px rgba(244, 208, 63, 0.2);
         }
         
         .step {
@@ -144,7 +157,7 @@
         }
         
         .step-number {
-            background: linear-gradient(135deg, #FFD700, #FF8F00);
+            background: linear-gradient(135deg, #F4D03F, #D2B48C);
             color: #2C1810;
             width: 28px;
             height: 28px;
@@ -155,28 +168,28 @@
             font-weight: bold;
             font-size: 0.9rem;
             flex-shrink: 0;
-            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+            box-shadow: 0 2px 8px rgba(244, 208, 63, 0.3);
         }
         
         .help-section {
             margin-top: 2rem;
             padding: 1.5rem;
-            background: linear-gradient(90deg, #FFE082 0%, #FFC107 100%);
+            background: linear-gradient(90deg, #FFE082 0%, #F4D03F 100%);
             border-radius: 15px;
-            border-left: 5px solid #FF8F00;
+            border-left: 5px solid #8B4513;
             color: #2C1810;
             font-weight: 500;
-            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.2);
+            box-shadow: 0 4px 16px rgba(244, 208, 63, 0.2);
         }
         
         .fallback-section {
             margin-top: 2rem;
             padding: 1.5rem;
-            background: linear-gradient(90deg, #FFF59D 0%, #FFCC02 100%);
+            background: linear-gradient(90deg, #FFF59D 0%, #F4D03F 100%);
             border-radius: 15px;
-            border-left: 5px solid #FF8F00;
+            border-left: 5px solid #8B4513;
             text-align: left;
-            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.2);
+            box-shadow: 0 4px 16px rgba(244, 208, 63, 0.2);
         }
         
         .fallback-title {
@@ -197,52 +210,52 @@
             background: linear-gradient(90deg, #FFFBF0 0%, #FFF3E0 100%);
             padding: 1rem;
             border-radius: 10px;
-            border: 2px solid #FFB300;
-            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.1);
+            border: 2px solid #D2B48C;
+            box-shadow: 0 2px 8px rgba(244, 208, 63, 0.1);
         }
         
         .fallback-option-title {
             font-weight: 600;
-            color: #FF8F00;
+            color: #8B4513;
             margin-bottom: 0.5rem;
         }
         
         .download-button {
             display: inline-block;
             padding: 1rem 2rem;
-            background: linear-gradient(135deg, #FFD700, #FF8F00);
+            background: linear-gradient(135deg, #F4D03F, #D2B48C);
             color: #2C1810;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             margin: 1rem 0;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.3);
-            border: 2px solid #FFB300;
+            box-shadow: 0 4px 16px rgba(244, 208, 63, 0.3);
+            border: 2px solid #D2B48C;
         }
         
         .download-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 24px rgba(255, 193, 7, 0.4);
+            box-shadow: 0 6px 24px rgba(244, 208, 63, 0.4);
         }
         
         .fallback-button {
             display: inline-block;
             padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, #FFC107, #FF8F00);
+            background: linear-gradient(135deg, #F4D03F, #8B4513);
             color: #2C1810;
             text-decoration: none;
             border-radius: 25px;
             font-weight: 600;
             margin: 0.5rem 0;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2);
+            box-shadow: 0 2px 8px rgba(244, 208, 63, 0.2);
         }
         
         .fallback-button:hover {
             transform: scale(1.05);
-            background: linear-gradient(135deg, #FFD700, #FFA000);
-            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.3);
+            background: linear-gradient(135deg, #F4D03F, #C0C0C0);
+            box-shadow: 0 4px 16px rgba(244, 208, 63, 0.3);
         }
         
         .hidden {
@@ -250,7 +263,7 @@
         }
         
         code {
-            background: rgba(255, 193, 7, 0.2);
+            background: rgba(244, 208, 63, 0.2);
             padding: 2px 6px;
             border-radius: 4px;
             font-family: 'Courier New', monospace;
@@ -267,6 +280,11 @@
                 font-size: 2rem;
             }
             
+            .logo-title {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
             .os-buttons {
                 grid-template-columns: 1fr;
             }
@@ -276,14 +294,17 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="title">🤖 Organized AI Dev Setup</h1>
+            <div class="logo-title">
+                <img src="./logo.svg" alt="Organized AI Logo" class="logo">
+                <h1 class="title">Organized AI Dev Setup</h1>
+            </div>
             <p class="subtitle">Get your AI development environment ready in 5 minutes!</p>
             <p style="font-size: 0.9rem; color: #5D4037; margin-bottom: 1rem; font-weight: 500;">setup.organizedai.vip</p>
         </div>
         
         <div class="project-description">
             <div class="project-title">🎯 Organized AI Development Environment</div>
-            <p>You'll be setting up the complete <strong>🤖 Organized AI Dev Setup</strong> - a comprehensive AI-powered development environment with progressive workshops, platform integrations, and real-world applications for human-AI collaboration.</p>
+            <p>You'll be setting up the complete <strong>Organized AI Dev Setup</strong> - a comprehensive AI-powered development environment with progressive workshops, platform integrations, and real-world applications for human-AI collaboration.</p>
             
             <div class="features">
                 <div class="feature">✅ 🏗️ Project Planning Systems</div>
@@ -485,7 +506,7 @@
                 </div>
             </div>
             
-            <button onclick="goBack()" style="margin-top: 1rem; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #FFB300, #FF8F00); color: #2C1810; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2);">
+            <button onclick="goBack()" style="margin-top: 1rem; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #D2B48C, #8B4513); color: #2C1810; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; box-shadow: 0 2px 8px rgba(244, 208, 63, 0.2);">
                 ← Choose Different OS
             </button>
         </div>
@@ -497,7 +518,7 @@
         </div>
         
         <div style="margin-top: 2rem; font-size: 0.9rem; color: #5D4037; font-weight: 500;">
-            This will install: Git, Node.js, Python, Cursor IDE, and the complete 🤖 Organized AI Dev Setup<br>
+            This will install: Git, Node.js, Python, Cursor IDE, and the complete Organized AI Dev Setup<br>
             <strong>Can't install?</strong> No problem - use our browser-based backup options above!
         </div>
     </div>
@@ -531,14 +552,14 @@
             let buttons = document.querySelectorAll('.os-button');
             
             if (userAgent.includes('mac')) {
-                buttons[0].style.borderColor = '#FF8F00';
-                buttons[0].style.background = 'linear-gradient(135deg, #FFD700 0%, #FFA000 100%)';
+                buttons[0].style.borderColor = '#8B4513';
+                buttons[0].style.background = 'linear-gradient(135deg, #F4D03F 0%, #E6B800 100%)';
             } else if (userAgent.includes('win')) {
-                buttons[1].style.borderColor = '#FF8F00';
-                buttons[1].style.background = 'linear-gradient(135deg, #FFD700 0%, #FFA000 100%)';
+                buttons[1].style.borderColor = '#8B4513';
+                buttons[1].style.background = 'linear-gradient(135deg, #F4D03F 0%, #E6B800 100%)';
             } else if (userAgent.includes('linux')) {
-                buttons[2].style.borderColor = '#FF8F00';
-                buttons[2].style.background = 'linear-gradient(135deg, #FFD700 0%, #FFA000 100%)';
+                buttons[2].style.borderColor = '#8B4513';
+                buttons[2].style.background = 'linear-gradient(135deg, #F4D03F 0%, #E6B800 100%)';
             }
         }
         
