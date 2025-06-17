@@ -1,0 +1,50 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#F4D03F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E6B800;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="metalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8E8E8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#C0C0C0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A0A0A0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="humanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E6C2A6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#D2B48C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C19B6B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <circle cx="40" cy="40" r="38" fill="url(#bgGradient)" stroke="#FFB300" stroke-width="2"/>
+  
+  <!-- Human hand (left side) -->
+  <path d="M15 35 Q18 32 22 35 L28 38 Q30 40 28 42 L22 45 Q18 48 15 45 Q12 42 15 35" fill="url(#humanGradient)" stroke="#8B4513" stroke-width="0.5"/>
+  
+  <!-- Human fingers -->
+  <ellipse cx="20" cy="33" rx="2" ry="4" fill="url(#humanGradient)" stroke="#8B4513" stroke-width="0.5"/>
+  <ellipse cx="23" cy="32" rx="1.5" ry="3.5" fill="url(#humanGradient)" stroke="#8B4513" stroke-width="0.5"/>
+  <ellipse cx="26" cy="33" rx="1.5" ry="3" fill="url(#humanGradient)" stroke="#8B4513" stroke-width="0.5"/>
+  
+  <!-- Robot hand (right side) -->
+  <path d="M52 38 Q55 35 58 38 L64 41 Q66 43 64 45 L58 48 Q55 51 52 48 Q49 45 52 38" fill="url(#metalGradient)" stroke="#666666" stroke-width="0.8"/>
+  
+  <!-- Robot finger segments -->
+  <rect x="56" y="34" width="3" height="6" rx="1" fill="url(#metalGradient)" stroke="#666666" stroke-width="0.5"/>
+  <rect x="59" y="33" width="2.5" height="7" rx="1" fill="url(#metalGradient)" stroke="#666666" stroke-width="0.5"/>
+  <rect x="61.5" y="34" width="2" height="6" rx="1" fill="url(#metalGradient)" stroke="#666666" stroke-width="0.5"/>
+  
+  <!-- Robot joint details -->
+  <circle cx="57.5" cy="37" r="1" fill="#8B4513" stroke="#654321" stroke-width="0.3"/>
+  <circle cx="60" cy="36.5" r="0.8" fill="#8B4513" stroke="#654321" stroke-width="0.3"/>
+  <circle cx="62.5" cy="37" r="0.6" fill="#8B4513" stroke="#654321" stroke-width="0.3"/>
+  
+  <!-- Connection/handshake area -->
+  <ellipse cx="40" cy="40" rx="8" ry="4" fill="none" stroke="#FFD700" stroke-width="1.5" opacity="0.7"/>
+  
+  <!-- Highlight details -->
+  <path d="M16 36 Q19 34 21 36" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.6"/>
+  <path d="M56 39 Q59 37 61 39" fill="none" stroke="#FFFFFF" stroke-width="0.8" opacity="0.8"/>
+</svg>
