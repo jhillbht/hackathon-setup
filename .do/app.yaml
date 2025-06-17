@@ -1,0 +1,27 @@
+name: hackathon-setup
+services:
+- name: dwy-hackathon-landing
+  type: static_site
+  source_dir: /
+  github:
+    repo: jhillbht/hackathon-setup
+    branch: main
+    deploy_on_push: true
+  environment_slug: html
+  index_document: index.html
+  catchall_document: index.html
+  routes:
+  - path: /
+  - path: /scripts
+  cors:
+    allow_origins:
+    - "*"
+    allow_methods:
+    - GET
+    - POST
+    - OPTIONS
+    allow_headers:
+    - Content-Type
+    - Accept
+    - Origin
+    - Cache-Control
