@@ -222,6 +222,17 @@
             margin-bottom: 0.5rem;
         }
         
+        .cursor-steps {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+        }
+        
+        .cursor-step {
+            margin: 0.3rem 0;
+            padding-left: 1rem;
+        }
+        
         .download-button {
             display: inline-block;
             padding: 1rem 2rem;
@@ -387,11 +398,38 @@
                         </div>
                         
                         <div class="fallback-option">
-                            <div class="fallback-option-title">💻 Option 2: VS Code Dev Container</div>
-                            <p style="color: #b0b0b0;">If you have VS Code and Docker installed, use our dev container setup.</p>
-                            <a href="vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button">
-                                📦 Open Dev Container
-                            </a>
+                            <div class="fallback-option-title">🎯 Option 2: Cursor IDE (AI-Powered Learning)</div>
+                            <p style="color: #b0b0b0;">Perfect for hands-on learning with AI assistance! Cursor will help you understand the project as you build.</p>
+                            <p style="color: #b0b0b0; font-size: 0.9rem; margin: 0.5rem 0;"><strong>Step 1:</strong> <a href="https://cursor.sh/" target="_blank" style="color: #F4D03F;">Download and Install Cursor</a></p>
+                            <div class="cursor-steps">
+                                <div class="cursor-step">1. Open Cursor IDE</div>
+                                <div class="cursor-step">2. Press <strong>Cmd+Shift+P</strong></div>
+                                <div class="cursor-step">3. Type "Git: Clone" and press Enter</div>
+                                <div class="cursor-step">4. Paste: <code>https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent.git</code></div>
+                                <div class="cursor-step">5. Let Cursor's AI guide you through setup!</div>
+                            </div>
+                            <p style="color: #b0b0b0; font-size: 0.85rem; margin-top: 0.5rem;">
+                                🤖 AI explains tool calling and MCP concepts as you code<br>
+                                🚀 Intelligent suggestions for dependency installation<br>
+                                💡 Real-time assistance understanding AI agent architecture
+                            </p>
+                        </div>
+                        
+                        <div class="fallback-option">
+                            <div class="fallback-option-title">🐳 Option 3: Cursor Dev Container (Advanced)</div>
+                            <p style="color: #b0b0b0;">Get the complete containerized environment with AI assistance in Cursor IDE!</p>
+                            <p style="color: #b0b0b0; font-size: 0.9rem; margin: 0.5rem 0;"><strong>Prerequisites:</strong> <a href="https://docker.com/products/docker-desktop/" target="_blank" style="color: #F4D03F;">Docker Desktop</a> + <a href="https://cursor.sh/" target="_blank" style="color: #F4D03F;">Cursor IDE</a></p>
+                            <div class="cursor-steps">
+                                <div class="cursor-step">1. Install the Dev Containers extension in Cursor</div>
+                                <div class="cursor-step">2. Press <strong>Cmd+Shift+P</strong></div>
+                                <div class="cursor-step">3. Type "Dev Containers: Clone Repository in Container Volume"</div>
+                                <div class="cursor-step">4. Paste: <code>https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent.git</code></div>
+                                <div class="cursor-step">5. Let Cursor + Docker handle the complete setup!</div>
+                            </div>
+                            <p style="color: #b0b0b0; font-size: 0.85rem; margin-top: 0.5rem;">
+                                🔒 Isolated development environment • 🤖 AI assistance + containerized consistency<br>
+                                🚀 Zero dependency conflicts • 🎯 Production-ready development setup
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -443,11 +481,38 @@
                         </div>
                         
                         <div class="fallback-option">
-                            <div class="fallback-option-title">💻 Option 2: VS Code Dev Container</div>
-                            <p style="color: #b0b0b0;">If you have VS Code and Docker Desktop installed, use our dev container setup.</p>
-                            <a href="vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button">
-                                📦 Open Dev Container
-                            </a>
+                            <div class="fallback-option-title">🎯 Option 2: Cursor IDE (AI-Powered Learning)</div>
+                            <p style="color: #b0b0b0;">Perfect for hands-on learning with AI assistance! Cursor will help you understand the project as you build.</p>
+                            <p style="color: #b0b0b0; font-size: 0.9rem; margin: 0.5rem 0;"><strong>Step 1:</strong> <a href="https://cursor.sh/" target="_blank" style="color: #F4D03F;">Download and Install Cursor</a></p>
+                            <div class="cursor-steps">
+                                <div class="cursor-step">1. Open Cursor IDE</div>
+                                <div class="cursor-step">2. Press <strong>Ctrl+Shift+P</strong></div>
+                                <div class="cursor-step">3. Type "Git: Clone" and press Enter</div>
+                                <div class="cursor-step">4. Paste: <code>https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent.git</code></div>
+                                <div class="cursor-step">5. Let Cursor's AI guide you through setup!</div>
+                            </div>
+                            <p style="color: #b0b0b0; font-size: 0.85rem; margin-top: 0.5rem;">
+                                🤖 AI explains tool calling and MCP concepts as you code<br>
+                                🚀 Intelligent suggestions for dependency installation<br>
+                                💡 Real-time assistance understanding AI agent architecture
+                            </p>
+                        </div>
+                        
+                        <div class="fallback-option">
+                            <div class="fallback-option-title">🐳 Option 3: Cursor Dev Container (Advanced)</div>
+                            <p style="color: #b0b0b0;">Get the complete containerized environment with AI assistance in Cursor IDE!</p>
+                            <p style="color: #b0b0b0; font-size: 0.9rem; margin: 0.5rem 0;"><strong>Prerequisites:</strong> <a href="https://docker.com/products/docker-desktop/" target="_blank" style="color: #F4D03F;">Docker Desktop</a> + <a href="https://cursor.sh/" target="_blank" style="color: #F4D03F;">Cursor IDE</a></p>
+                            <div class="cursor-steps">
+                                <div class="cursor-step">1. Install the Dev Containers extension in Cursor</div>
+                                <div class="cursor-step">2. Press <strong>Ctrl+Shift+P</strong></div>
+                                <div class="cursor-step">3. Type "Dev Containers: Clone Repository in Container Volume"</div>
+                                <div class="cursor-step">4. Paste: <code>https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent.git</code></div>
+                                <div class="cursor-step">5. Let Cursor + Docker handle the complete setup!</div>
+                            </div>
+                            <p style="color: #b0b0b0; font-size: 0.85rem; margin-top: 0.5rem;">
+                                🔒 Isolated development environment • 🤖 AI assistance + containerized consistency<br>
+                                🚀 Zero dependency conflicts • 🎯 Production-ready development setup
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -499,11 +564,38 @@
                         </div>
                         
                         <div class="fallback-option">
-                            <div class="fallback-option-title">💻 Option 2: VS Code Dev Container</div>
-                            <p style="color: #b0b0b0;">If you have VS Code and Docker installed, use our dev container setup.</p>
-                            <a href="vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent" class="fallback-button">
-                                📦 Open Dev Container
-                            </a>
+                            <div class="fallback-option-title">🎯 Option 2: Cursor IDE (AI-Powered Learning)</div>
+                            <p style="color: #b0b0b0;">Perfect for hands-on learning with AI assistance! Cursor will help you understand the project as you build.</p>
+                            <p style="color: #b0b0b0; font-size: 0.9rem; margin: 0.5rem 0;"><strong>Step 1:</strong> <a href="https://cursor.sh/" target="_blank" style="color: #F4D03F;">Download and Install Cursor</a></p>
+                            <div class="cursor-steps">
+                                <div class="cursor-step">1. Open Cursor IDE</div>
+                                <div class="cursor-step">2. Press <strong>Ctrl+Shift+P</strong></div>
+                                <div class="cursor-step">3. Type "Git: Clone" and press Enter</div>
+                                <div class="cursor-step">4. Paste: <code>https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent.git</code></div>
+                                <div class="cursor-step">5. Let Cursor's AI guide you through setup!</div>
+                            </div>
+                            <p style="color: #b0b0b0; font-size: 0.85rem; margin-top: 0.5rem;">
+                                🤖 AI explains tool calling and MCP concepts as you code<br>
+                                🚀 Intelligent suggestions for dependency installation<br>
+                                💡 Real-time assistance understanding AI agent architecture
+                            </p>
+                        </div>
+                        
+                        <div class="fallback-option">
+                            <div class="fallback-option-title">🐳 Option 3: Cursor Dev Container (Advanced)</div>
+                            <p style="color: #b0b0b0;">Get the complete containerized environment with AI assistance in Cursor IDE!</p>
+                            <p style="color: #b0b0b0; font-size: 0.9rem; margin: 0.5rem 0;"><strong>Prerequisites:</strong> <a href="https://docker.com/products/docker-desktop/" target="_blank" style="color: #F4D03F;">Docker Desktop</a> + <a href="https://cursor.sh/" target="_blank" style="color: #F4D03F;">Cursor IDE</a></p>
+                            <div class="cursor-steps">
+                                <div class="cursor-step">1. Install the Dev Containers extension in Cursor</div>
+                                <div class="cursor-step">2. Press <strong>Ctrl+Shift+P</strong></div>
+                                <div class="cursor-step">3. Type "Dev Containers: Clone Repository in Container Volume"</div>
+                                <div class="cursor-step">4. Paste: <code>https://github.com/Organized-AI/DWY-Tool-Calling-LLM-Agent.git</code></div>
+                                <div class="cursor-step">5. Let Cursor + Docker handle the complete setup!</div>
+                            </div>
+                            <p style="color: #b0b0b0; font-size: 0.85rem; margin-top: 0.5rem;">
+                                🔒 Isolated development environment • 🤖 AI assistance + containerized consistency<br>
+                                🚀 Zero dependency conflicts • 🎯 Production-ready development setup
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -522,7 +614,10 @@
         
         <div style="margin-top: 2rem; font-size: 0.9rem; color: #b0b0b0; font-weight: 500;">
             This will install: Git, Node.js, Python, Cursor IDE, and the complete Organized AI Dev Setup<br>
-            <strong>Can't install?</strong> No problem - use our browser-based backup options above!
+            <strong>Can't install?</strong> No problem - use our browser-based backup options above!<br><br>
+            <strong style="color: #F4D03F;">Why Cursor is Perfect for This Project:</strong><br>
+            🤖 AI-powered code understanding from day one • 🚀 Automatic dependency detection and installation<br>
+            💡 Intelligent suggestions for tool calling and MCP setup • 🎯 Perfect for learning AI agent development with real-time assistance
         </div>
     </div>
 
