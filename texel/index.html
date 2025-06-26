@@ -372,16 +372,16 @@
                 </div>
 
                 <div class="api-config">
-                    <div class="api-config-title">Auto-Download Settings</div>
+                    <div class="api-config-title">Generated Videos Location</div>
                     <div style="font-size: 12px; color: #888; line-height: 1.4;">
-                        📁 <strong>Target Folder:</strong><br>
-                        <code style="background: #1a1a1a; padding: 2px 6px; border-radius: 4px; font-size: 10px;">
-                            /Users/supabowl/Library/Mobile Documents/com~apple~CloudDocs/BHT Promo iCloud/Organized AI/Texel Generated
+                        📁 <strong>Videos available at:</strong><br>
+                        <code style="background: #1a1a1a; padding: 2px 6px; border-radius: 4px; font-size: 10px;" id="videoDomain">
+                            Loading domain...
                         </code>
                     </div>
                     <div style="margin-top: 8px; font-size: 11px; color: #666;">
-                        ✅ Videos auto-download after generation<br>
-                        📝 Move from Downloads to organize in iCloud
+                        ✅ Videos accessible via your domain<br>
+                        🔗 Direct links generated automatically
                     </div>
                 </div>
 
@@ -489,6 +489,16 @@
     </div>
 
     <script>
+        // Get current domain for video URLs
+        const CURRENT_DOMAIN = window.location.origin;
+        const VIDEO_BASE_PATH = '/texel/videos/';
+        const FULL_VIDEO_BASE_URL = CURRENT_DOMAIN + VIDEO_BASE_PATH;
+
+        // Update domain display on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('videoDomain').textContent = FULL_VIDEO_BASE_URL + 'generated_video_XXXXX.mp4';
+        });
+
         // Advanced prompt library with model-specific optimizations
         const promptLibrary = {
             corporate: {
@@ -618,7 +628,10 @@
             `;
 
             try {
-                // Simulate API call (replace with actual Texel.ai API integration)
+                // Attempt API call first
+                // const result = await callTexelAPI(model, prompt, negative, apiKey);
+                // For now, simulate the response
+                
                 await simulateGeneration(model, prompt, negative, apiKey);
                 
             } catch (error) {
@@ -676,161 +689,6 @@
             }
         }
 
-        // Auto-download configuration
-        const AUTO_DOWNLOAD_FOLDER = '/Users/supabowl/Library/Mobile Documents/com~apple~CloudDocs/BHT Promo iCloud/Organized AI/Texel Generated';
-        
-        // Auto-download function
-        async function autoDownloadVideo(videoData) {
-            try {
-                console.log(`Auto-downloading to: ${AUTO_DOWNLOAD_FOLDER}`);
-                
-                // Generate filename with timestamp and model
-                const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-                const filename = `${videoData.model}_handshake_${timestamp}.mp4`;
-                
-                // For web implementation, we'll trigger browser download
-                // Note: Browser security prevents writing directly to specific folders
-                if (videoData.url) {
-                    const link = document.createElement('a');
-                    link.href = videoData.url;
-                    link.download = filename;
-                    link.style.display = 'none';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    
-                    // Show success message with folder info
-                    showDownloadNotification(filename);
-                } else {
-                    // For demo purposes, simulate download
-                    simulateDownload(filename, videoData);
-                }
-                
-            } catch (error) {
-                console.error('Auto-download failed:', error);
-                showDownloadError(error.message);
-            }
-        }
-        
-        function simulateDownload(filename, videoData) {
-            // Create a blob URL for demo purposes
-            const canvas = document.createElement('canvas');
-            canvas.width = 1024;
-            canvas.height = 1024;
-            const ctx = canvas.getContext('2d');
-            
-            // Create gradient background
-            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-            gradient.addColorStop(0, '#F4D03F');
-            gradient.addColorStop(0.5, '#F7DC6F');
-            gradient.addColorStop(1, '#F1C40F');
-            
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            // Add text
-            ctx.fillStyle = '#333';
-            ctx.font = 'bold 48px Arial';
-            ctx.textAlign = 'center';
-            ctx.fillText(`${videoData.model.toUpperCase()}`, canvas.width/2, canvas.height/2 - 50);
-            ctx.font = '24px Arial';
-            ctx.fillText('Generated Video', canvas.width/2, canvas.height/2 + 20);
-            ctx.fillText('Human-Robot Handshake', canvas.width/2, canvas.height/2 + 60);
-            
-            // Convert to blob and download
-            canvas.toBlob(function(blob) {
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = filename.replace('.mp4', '.png'); // Demo as image
-                link.style.display = 'none';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                URL.revokeObjectURL(url);
-                
-                showDownloadNotification(filename);
-            });
-        }
-        
-        function showDownloadNotification(filename) {
-            // Create notification overlay
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: linear-gradient(135deg, #2ecc71, #27ae60);
-                color: white;
-                padding: 15px 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-                z-index: 1000;
-                max-width: 350px;
-                font-size: 14px;
-            `;
-            
-            notification.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <span style="font-size: 20px;">✅</span>
-                    <div>
-                        <div style="font-weight: bold; margin-bottom: 5px;">Download Complete!</div>
-                        <div style="font-size: 12px; opacity: 0.9;">${filename}</div>
-                        <div style="font-size: 11px; opacity: 0.7; margin-top: 5px;">
-                            Target: ${AUTO_DOWNLOAD_FOLDER}
-                        </div>
-                        <div style="font-size: 10px; opacity: 0.6; margin-top: 3px;">
-                            Move from Downloads folder to organize in iCloud
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            // Auto-remove after 5 seconds
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
-                }
-            }, 5000);
-        }
-        
-        function showDownloadError(message) {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: linear-gradient(135deg, #e74c3c, #c0392b);
-                color: white;
-                padding: 15px 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-                z-index: 1000;
-                max-width: 350px;
-                font-size: 14px;
-            `;
-            
-            notification.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <span style="font-size: 20px;">❌</span>
-                    <div>
-                        <div style="font-weight: bold; margin-bottom: 5px;">Download Failed</div>
-                        <div style="font-size: 12px; opacity: 0.9;">${message}</div>
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
-                }
-            }, 5000);
-        }
-
         // Media Library Management
         let mediaLibrary = [];
 
@@ -869,21 +727,32 @@
         function playVideo(videoId) {
             const video = mediaLibrary.find(v => v.id === videoId);
             if (video) {
-                alert(`Playing video: ${video.model.toUpperCase()} - ${video.prompt.substring(0, 50)}...`);
-                // In real implementation, open video player
+                // Open video in new window/tab
+                window.open(video.url, '_blank');
             }
         }
 
         function downloadVideo(videoId) {
             const video = mediaLibrary.find(v => v.id === videoId);
             if (video) {
-                alert(`Downloading: ${video.model.toUpperCase()} video`);
-                // In real implementation, trigger download
+                // Create download link
+                const link = document.createElement('a');
+                link.href = video.url;
+                link.download = `${video.model}_video_${video.id}.mp4`;
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             }
         }
 
         function backToGeneration() {
             location.reload(); // Simple way to return to main interface
+        }
+
+        // Generate dynamic video URL
+        function generateVideoURL(model, timestamp) {
+            return `${FULL_VIDEO_BASE_URL}generated_${model}_${timestamp}.mp4`;
         }
 
         // Simulate API generation (replace with actual Texel.ai API)
@@ -895,11 +764,14 @@
                 
                 return new Promise((resolve, reject) => {
                     setTimeout(async () => {
+                        const timestamp = Date.now();
+                        const videoURL = generateVideoURL(model, timestamp);
+                        
                         const generatedVideo = {
-                            id: `video_${Date.now()}`,
+                            id: `video_${timestamp}`,
                             model: model,
                             prompt: prompt,
-                            url: `https://example.com/generated_video_${Date.now()}.mp4`,
+                            url: videoURL,
                             thumbnail: `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23F4D03F"/><stop offset="50%" style="stop-color:%23F7DC6F"/><stop offset="100%" style="stop-color:%23F1C40F"/></linearGradient></defs><rect width="400" height="300" fill="url(%23bg)"/><text x="200" y="150" text-anchor="middle" fill="%23333" font-size="16" font-weight="bold">${model.toUpperCase()} Video</text></svg>`,
                             timestamp: new Date().toISOString()
                         };
@@ -907,10 +779,7 @@
                         // Save to media library
                         saveToMediaLibrary(generatedVideo);
                         
-                        // Auto-download the video
-                        await autoDownloadVideo(generatedVideo);
-                        
-                        // Display result
+                        // Display result with correct URL
                         outputArea.innerHTML = `
                             <div style="text-align: center;">
                                 <div style="background: linear-gradient(135deg, #F4D03F 0%, #F7DC6F 50%, #F1C40F 100%); 
@@ -919,13 +788,18 @@
                                             margin: 0 auto; color: #333; font-weight: bold;">
                                     ${model.toUpperCase()} Generated Video<br>
                                     <span style="font-size: 12px;">Human-Robot Handshake</span><br>
-                                    <span style="font-size: 10px; opacity: 0.7;">Auto-downloaded ✅</span>
+                                    <a href="${videoURL}" target="_blank" style="font-size: 10px; color: #ff6b35; text-decoration: underline;">
+                                        Click to view video
+                                    </a>
                                 </div>
                                 <div style="margin-top: 15px; font-size: 14px; color: #888;">
                                     Model: ${model.toUpperCase()} | Duration: 10s | Resolution: 1024x1024
                                 </div>
                                 <div style="margin-top: 10px; font-size: 12px; color: #666; background: #1a1a1a; padding: 8px; border-radius: 6px;">
-                                    📁 Auto-saved to: ${AUTO_DOWNLOAD_FOLDER}
+                                    🔗 Video URL: <a href="${videoURL}" target="_blank" style="color: #ff6b35;">${videoURL}</a>
+                                </div>
+                                <div style="margin-top: 10px; font-size: 11px; color: #888;">
+                                    ✅ Video will be accessible once generation completes
                                 </div>
                             </div>
                         `;
@@ -946,7 +820,7 @@
                     id: 'example_1',
                     model: 'hunyuan',
                     prompt: 'Professional business executive in tailored navy suit extends hand toward advanced humanoid robot with sleek metallic design',
-                    url: 'example1.mp4',
+                    url: `${FULL_VIDEO_BASE_URL}example_hunyuan_handshake.mp4`,
                     thumbnail: `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23F4D03F"/><stop offset="50%" style="stop-color:%23F7DC6F"/><stop offset="100%" style="stop-color:%23F1C40F"/></linearGradient></defs><rect width="400" height="300" fill="url(%23bg1)"/><text x="200" y="140" text-anchor="middle" fill="%23333" font-size="14" font-weight="bold">HUNYUAN Handshake</text><text x="200" y="160" text-anchor="middle" fill="%23666" font-size="10">Cinematic Quality</text></svg>`,
                     timestamp: new Date(Date.now() - 86400000).toISOString() // Yesterday
                 },
@@ -954,7 +828,7 @@
                     id: 'example_2', 
                     model: 'wan21',
                     prompt: 'Distinguished technology executive in elegant business attire engages in groundbreaking handshake',
-                    url: 'example2.mp4',
+                    url: `${FULL_VIDEO_BASE_URL}example_wan21_handshake.mp4`,
                     thumbnail: `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23F4D03F"/><stop offset="50%" style="stop-color:%23F7DC6F"/><stop offset="100%" style="stop-color:%23F1C40F"/></linearGradient></defs><rect width="400" height="300" fill="url(%23bg2)"/><text x="200" y="140" text-anchor="middle" fill="%23333" font-size="14" font-weight="bold">WAN 2.1 Handshake</text><text x="200" y="160" text-anchor="middle" fill="%23666" font-size="10">Premium Detail</text></svg>`,
                     timestamp: new Date(Date.now() - 172800000).toISOString() // 2 days ago
                 }
@@ -972,15 +846,31 @@
 
         // Result action functions
         function downloadResult() {
-            alert('Download functionality would be implemented with actual Texel.ai API integration');
+            // Get the last generated video
+            if (mediaLibrary.length > 0) {
+                const lastVideo = mediaLibrary[mediaLibrary.length - 1];
+                downloadVideo(lastVideo.id);
+            } else {
+                alert('No video to download');
+            }
         }
 
         function saveToLibrary() {
-            alert('Save to library functionality would be implemented with actual Texel.ai API integration');
+            alert('Video automatically saved to media library');
         }
 
         function shareResult() {
-            alert('Share functionality would be implemented with actual Texel.ai API integration');
+            if (mediaLibrary.length > 0) {
+                const lastVideo = mediaLibrary[mediaLibrary.length - 1];
+                // Copy URL to clipboard
+                navigator.clipboard.writeText(lastVideo.url).then(() => {
+                    alert('Video URL copied to clipboard!');
+                }).catch(() => {
+                    alert(`Video URL: ${lastVideo.url}`);
+                });
+            } else {
+                alert('No video to share');
+            }
         }
 
         // Initialize with default negative prompt
